@@ -1,0 +1,27 @@
+{
+  "name": "@venmo/prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "exports": {
+    "./client": "./app/index.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prisma": {
+    "seed": "pnpm ts-node prisma/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "5.16.1",
+    "@types/node": "^20.14.10",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@venmo/typescript-config": "workspace:*",
+    "prisma": "^5.16.1"
+  }
+}

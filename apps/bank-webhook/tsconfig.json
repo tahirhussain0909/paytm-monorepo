@@ -1,0 +1,12 @@
+{
+  "extends": "@venmo/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "paths": {
+      "@/*": ["./*"],
+      "@venmo/prisma/client": ["../../packages/prisma/app/index.ts"]
+    },
+  },
+  "include": ["app"],
+  "exclude": ["node_modules", "dist"]
+}

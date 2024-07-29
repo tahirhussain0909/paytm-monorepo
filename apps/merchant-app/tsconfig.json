@@ -1,0 +1,24 @@
+{
+  "extends": "@venmo/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"],
+      "@ui/*": ["../../packages/ui/*"],
+      "@venmo/ui/*": ["../../packages/ui/*"],
+      "@venmo/prisma/client": ["../../packages/prisma/app/index.ts"],
+    },
+  },
+  "include": [
+    "next-env.d.ts",
+    "next.config.mjs",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

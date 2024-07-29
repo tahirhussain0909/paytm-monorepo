@@ -1,0 +1,12 @@
+{
+  "extends": "@venmo/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@ui/*": ["./*"],
+    }
+  },
+  "include": ["styles", "lib", "components"],
+  "exclude": ["node_modules", "dist"]
+}
