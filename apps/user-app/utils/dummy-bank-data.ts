@@ -12,8 +12,4 @@ export const SUPPORTED_BANKS: BanksType = [
     name: "Axis Bank",
     redirectUrl: "https://www.axisbank.com",
   },
-  {
-    name: "SBI Bank",
-    redirectUrl: "https://www.onlinesbi.sbi",
-  },
 ];
