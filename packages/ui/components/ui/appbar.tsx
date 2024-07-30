@@ -4,18 +4,16 @@ import { Button } from "@ui/components/ui/button";
 import { Avatar, AvatarFallback } from "./avatar";
 
 interface AppbarProps {
-  logoSrc?: string;
+  logo: React.ReactNode;
   user?: {
     name?: string | null;
   } | null;
   onSignin?: () => void;
   onSignout?: () => void;
-  onLogoClick?: () => void;
   buttonTexts?: {
     login: string;
     logout: string;
   };
-  showLogo?: boolean;
   showButton?: boolean;
   buttonVariant?:
     | "default"
@@ -31,27 +29,18 @@ interface AppbarProps {
 }
 
 export const AppBar = ({
-  logoSrc = "https://generated.vusercontent.net/placeholder.svg",
+  logo,
   user,
   onSignin,
   onSignout,
-  onLogoClick,
-  buttonTexts = { login: "Login", logout: "Logout" },
-  showLogo = true,
   showButton = true,
+  buttonTexts = { login: "Login", logout: "Logout" },
   buttonClass,
   buttonVariant,
 }: AppbarProps) => {
   return (
     <header className="px-4 lg:px-6 h-[10vh] flex justify-between items-center bg-gradient-to-l from-[hsl(221.2,63.2%,53.3%)] to-[hsl(210,40%,96.1%)]">
-      {showLogo && (
-        <img
-          src={logoSrc}
-          alt="logo"
-          className="cursor-pointer h-8"
-          onClick={onLogoClick}
-        />
-      )}
+      {logo}
       {showButton ? (
         <Button
           variant={buttonVariant}

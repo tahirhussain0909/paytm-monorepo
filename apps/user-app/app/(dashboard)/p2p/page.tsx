@@ -2,7 +2,6 @@ import { getServerSession } from "next-auth";
 
 import { prisma } from "@venmo/prisma/client";
 import { authOptions } from "@/lib/auth";
-import { OnRampTransaction } from "@/components/on-ramp-transaction";
 import { SendCard } from "@/components/send-card";
 import { P2PTransfer } from "@/components/p2p-transfer";
 
