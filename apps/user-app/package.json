@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo -p 3000",
-    "build": "next build",
+    "build": "pnpm run prisma:generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:generate": "cd packages/prisma && pnpm dlx prisma generate && cd ../.."
   },
   "dependencies": {
     "@venmo/prisma": "workspace:*",
