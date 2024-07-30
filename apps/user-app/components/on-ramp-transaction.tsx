@@ -30,10 +30,10 @@ export const OnRampTransaction: React.FC<{
       <CardHeader>
         <CardTitle>Recent Transactions</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="h-[10rem] overflow-auto">
         <div className="pt-2">
           {transactions.map((t, index) => (
-            <div key={index} className="flex justify-between">
+            <div key={index} className="flex justify-between py-1">
               <div>
                 <div className="text-sm">Received INR</div>
                 <div className="text-slate-600 text-xs">

@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "antialiased overflow-hidden bg-blue-50 select-none",
+          "antialiased bg-blue-50 select-none",
           inter.className
         )}
         suppressHydrationWarning={true}

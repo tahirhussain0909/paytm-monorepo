@@ -43,7 +43,7 @@ export const AppBar = ({
   buttonVariant,
 }: AppbarProps) => {
   return (
-    <header className="flex w-full justify-between items-center bg-white py-8 px-8">
+    <header className="px-4 lg:px-6 h-[10vh] flex justify-between items-center bg-gradient-to-l from-[hsl(221.2,63.2%,53.3%)] to-[hsl(210,40%,96.1%)]">
       {showLogo && (
         <img
           src={logoSrc}
