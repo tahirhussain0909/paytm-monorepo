@@ -41,7 +41,4 @@ jobs:
             sudo docker pull hussaintahir/paytm-monorepo:latest
             sudo docker stop paytm-monorepo || true
             sudo docker rm paytm-monorepo || true
-            sudo docker run -d -p 3000:3000 --name paytm-monorepo hussaintahir/paytm-monorepo:latest
-
-
-
+            sudo docker run -d -p 3000:3000 -e JWT_SECRET ${{ secrets.JWT_SECRET }} NEXTAUTH_URL ${{ secrets.NEXTAUTH_URL }} DATABASE_URL ${{ secrets.DATABASE_URL }} --name paytm-monorepo hussaintahir/paytm-monorepo:latest
