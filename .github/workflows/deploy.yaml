@@ -38,35 +38,37 @@ jobs:
             #!/bin/bash
             set -e
 
-            # Stop all running containers (if any)
-            sudo docker stop $(sudo docker ps -aq) || true
+            echo "Starting deployment process..."
 
-            # Remove all containers (if any)
-            sudo docker rm $(sudo docker ps -aq) || true
+            echo "Stopping and removing existing containers..."
+            sudo docker stop $(sudo docker ps -aq) || echo "No containers to stop"
+            sudo docker rm $(sudo docker ps -aq) || echo "No containers to remove"
 
-            # Remove all images (if any)
-            sudo docker rmi $(sudo docker images -q) || true
+            echo "Removing existing images..."
+            sudo docker rmi $(sudo docker images -q) || echo "No images to remove"
 
-            # Remove all volumes (if any)
-            sudo docker volume rm $(sudo docker volume ls -q) || true
+            echo "Removing volumes..."
+            sudo docker volume rm $(sudo docker volume ls -q) || echo "No volumes to remove"
 
-            # Clean up any leftover data
+            echo "Cleaning up any leftover data..."
             sudo docker system prune -af --volumes
 
-            # Pull the new image
+            echo "Pulling new image..."
             sudo docker pull hussaintahir/paytm-monorepo:${{ github.sha }}
 
-            # Run the new container
-            sudo docker run -d -p 3000:3000 \
+            echo "Starting new container..."
+            container_id=$(sudo docker run -d -p 3000:3000 \
               -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
               -e NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" \
               -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
-              --name paytm-monorepo hussaintahir/paytm-monorepo:${{ github.sha }}
+              --name paytm-monorepo hussaintahir/paytm-monorepo:${{ github.sha }})
 
-            # Verify the new container is running
+            echo "Verifying deployment..."
             if [ $(sudo docker ps -q -f name=paytm-monorepo) ]; then
-                echo "Deployment successful"
+                echo "Deployment successful. Container ID: $container_id"
             else
-                echo "Deployment failed"
+                echo "Deployment failed. Container did not start properly."
                 exit 1
             fi
+
+            echo "Deployment process completed."
