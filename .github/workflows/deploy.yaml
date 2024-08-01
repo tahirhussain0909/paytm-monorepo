@@ -7,7 +7,6 @@ on:
 
 jobs:
   build-and-push:
-    name: Build and Push the project
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
