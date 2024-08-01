@@ -27,4 +27,4 @@ jobs:
           tags: hussaintahir/paytm-monorepo:latest
 
       - name: Verify pushed image
-        uses: docker pull hussaintahir/paytm-monorepo:latest
+        run: docker pull hussaintahir/paytm-monorepo:latest
