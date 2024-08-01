@@ -35,31 +35,34 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            # Stop all running containers
+            #!/bin/bash
+            set -e
+
+            # Stop all running containers (if any)
             sudo docker stop $(sudo docker ps -aq) || true
-            
-            # Remove all containers
+
+            # Remove all containers (if any)
             sudo docker rm $(sudo docker ps -aq) || true
-            
-            # Remove all images
+
+            # Remove all images (if any)
             sudo docker rmi $(sudo docker images -q) || true
-            
-            # Remove all volumes
+
+            # Remove all volumes (if any)
             sudo docker volume rm $(sudo docker volume ls -q) || true
-            
+
             # Clean up any leftover data
             sudo docker system prune -af --volumes
-            
+
             # Pull the new image
             sudo docker pull hussaintahir/paytm-monorepo:${{ github.sha }}
-            
+
             # Run the new container
             sudo docker run -d -p 3000:3000 \
               -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
               -e NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" \
               -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
               --name paytm-monorepo hussaintahir/paytm-monorepo:${{ github.sha }}
-            
+
             # Verify the new container is running
             if [ $(sudo docker ps -q -f name=paytm-monorepo) ]; then
                 echo "Deployment successful"
