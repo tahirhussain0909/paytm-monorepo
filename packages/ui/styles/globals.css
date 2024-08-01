@@ -57,3 +57,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4a90e2 transparent; /* Bluish thumb on transparent track */
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent !important; /* Invisible track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #4a90e2; /* Bluish thumb */
+  border-radius: 14px;
+  border: none; /* No border */
+}

@@ -35,7 +35,7 @@ export const P2PTransfer: React.FC<{
           {transfers.map((t, index) => (
             <div key={index} className="flex justify-between py-1">
               <div>
-                <div className="text-sm">Received INR</div>
+                <div className="text-sm">Sent INR</div>
                 <div className="text-slate-600 text-xs">
                   {t.time.toDateString()}
                 </div>
