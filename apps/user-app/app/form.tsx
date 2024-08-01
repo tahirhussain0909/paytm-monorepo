@@ -66,7 +66,7 @@ export default function HomeForm() {
               <p className="text-lg text-[hsl(210,40%,98%)] md:text-xl">
                 Our cutting-edge payment app revolutionizes the way you manage
                 your finances. Secure, fast, and intuitive - the perfect
-                companion for your modern, tech-savvy lifestyle.
+                companion for your modern, tech-savvvy lifestyle.
               </p>
               <div>
                 {session.data?.user ? (
