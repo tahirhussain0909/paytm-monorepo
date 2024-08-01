@@ -48,7 +48,12 @@ jobs:
             sudo docker rmi $(sudo docker images -q) || echo "No images to remove"
 
             echo "Removing volumes..."
-            sudo docker volume rm $(sudo docker volume ls -q) || echo "No volumes to remove"
+            volumes=$(sudo docker volume ls -q)
+            if [ -n "$volumes" ]; then
+                sudo docker volume rm $volumes || echo "No volumes to remove"
+            else
+                echo "No volumes to remove"
+            fi
 
             echo "Cleaning up any leftover data..."
             sudo docker system prune -af --volumes
