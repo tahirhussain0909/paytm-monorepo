@@ -61,5 +61,30 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #4a90e2 transparent; /* Bluish thumb on transparent track */
+  scrollbar-color: #4a90e2 transparent;
+}
+
+/* WebKit browsers (Chrome, Edge, Brave, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust this value to match Firefox's thin scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4a90e2;
+  border-radius: 4px;
+}
+
+/* Optional: Hide scrollbar when not scrolling */
+::-webkit-scrollbar-thumb {
+  visibility: hidden;
+}
+
+*:hover::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar-thumb,
+*:focus-within::-webkit-scrollbar-thumb {
+  visibility: visible;
 }
