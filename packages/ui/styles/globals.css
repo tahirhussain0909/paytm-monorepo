@@ -60,7 +60,7 @@
 
 /* Firefox */
 * {
-  scrollbar-width: thin;
+  scrollbar-width: auto;
   scrollbar-color: #4a90e2 transparent; /* Bluish thumb on transparent track */
 }
 
