@@ -58,8 +58,8 @@
   }
 }
 
-/* Apply scrollbar styles to the body */
-body {
+/* Firefox */
+* {
   scrollbar-width: thin;
   scrollbar-color: #4a90e2 transparent;
 }
@@ -74,7 +74,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #4a90e2;
+  background-color: #4a90e2; /* Ensure this matches the Firefox scrollbar color */
   border-radius: 4px;
 }
 
