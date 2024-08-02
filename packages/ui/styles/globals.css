@@ -60,21 +60,6 @@
 
 /* Firefox */
 * {
-  scrollbar-width: auto;
+  scrollbar-width: thin;
   scrollbar-color: #4a90e2 transparent; /* Bluish thumb on transparent track */
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 8px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent !important; /* Invisible track */
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #4a90e2; /* Bluish thumb */
-  border-radius: 8px;
-  border: none; /* No border */
 }
